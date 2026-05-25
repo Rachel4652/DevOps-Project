@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         // ---- שני את השם פה לשם המשתמש שלך ב-Docker Hub ----
-        DOCKER_HUB_USER = "your_dockerhub_username"
+        DOCKER_HUB_USER = "Rachel4652"
         
         BACKEND_IMAGE = "${DOCKER_HUB_USER}/todo-backend"
         FRONTEND_IMAGE = "${DOCKER_HUB_USER}/todo-frontend"
