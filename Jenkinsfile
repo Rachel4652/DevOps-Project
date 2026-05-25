@@ -1,12 +1,13 @@
 pipeline {
     agent any
     environment {
-        // שם המשתמש שלך ב-Docker Hub כפי שמופיע בנתיבי ה-Images
-        DOCKER_HUB_USER = "Rachel4652"
+        // שם המשתמש המעודכן והנכון שלך כפי שמופיע בצילום המסך!
+        DOCKER_HUB_USER = "racheli123"
         
         BACKEND_IMAGE = "${DOCKER_HUB_USER}/todo-backend"
         FRONTEND_IMAGE = "${DOCKER_HUB_USER}/todo-frontend"
     }
+...
 
     stages {
         stage('1. Checkout Code') {
