@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # שירות ה-Backend (פייתון)
+  backend:
+    build: ./backend              # דוקר יבנה את ה-Image מה-Dockerfile שנמצא בתיקיית backend
+    container_name: todo-backend
+    ports:
+      - "5000:5000"               # חשיפת פורט 5000 (נפוץ בפייתון/Flask)
+    volumes:
+      - todo_db_volume:/app       # חיבור הדיסק הקבוע לתיקיית האפליקציה שבה נוצר todo.db
+    environment:
+      - FLASK_ENV=production      # או כל משתנה סביבה אחר שהקוד שלך צריך
+
+  # שירות ה-Frontend (Node.js / React)
+  frontend:
+    build: ./frontend             # דוקר יבנה את ה-Image מה-Dockerfile שנמצא בתיקיית frontend
+    container_name: todo-frontend
+    ports:
+      - "3000:3000"               # חשיפת פורט 3000 (נפוץ ב-React)
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend                   # אומר לדוקר להרים קודם את ה-backend ורק אז את ה-frontend
+
+# הגדרת ה-Volume הכללי (הדיסק הקבוע מחוץ לקונטיינר)
+volumes:
+  todo_db_volume:
