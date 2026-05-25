@@ -18,8 +18,6 @@ services:
     container_name: todo-frontend
     ports:
       - "3000:3000"               # חשיפת פורט 3000 (נפוץ ב-React)
-    ports:
-      - "3000:3000"
     depends_on:
       - backend                   # אומר לדוקר להרים קודם את ה-backend ורק אז את ה-frontend
 
